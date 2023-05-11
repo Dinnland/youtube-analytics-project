@@ -15,7 +15,6 @@ class Video:
         self.youtube = Channel.get_service().videos().list(
             part='snippet,statistics,contentDetails,topicDetails', id=self.video_id
         ).execute()
-        # self.title = channel_info["items"][0]["snippet"]["title"]
         self.title = self.youtube["items"][0]["snippet"]["title"]
         self.url = 'https://www.youtube.com/watch?v=' + self.youtube['items'][0]['id']
         self.view_count = self.youtube['items'][0]['statistics']['viewCount']
